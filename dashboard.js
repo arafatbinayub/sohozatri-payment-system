@@ -47,7 +47,7 @@ async function loadPayments() {
             <td>${row[5]}</td>
             <td>${row[6]}</td>
             <td>${row[7]}</td>
-            <td>${row[9]}</td>
+            <td>${row[8]}</td>
         </tr>`;
     });
 
