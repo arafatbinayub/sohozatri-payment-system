@@ -4,7 +4,7 @@ const username=document.getElementById("username").value.trim();
 const password=document.getElementById("password").value.trim();
 const msg=document.getElementById("msg");
 
-if(username==="admin" && password==="12345"){
+if(username==="sohozatri" && password==="sohozatri26"){
 
 msg.style.color="green";
 msg.innerHTML="Login Successful...";
