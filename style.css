@@ -1,0 +1,377 @@
+/* =========================
+   SOHOZATRI Premium UI
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    background:linear-gradient(135deg,#4f46e5,#2563eb,#06b6d4);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.wrapper{
+    width:100%;
+    max-width:480px;
+}
+
+.card{
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(20px);
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+    animation:fadeUp .5s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.logo{
+    width:75px;
+    height:75px;
+    margin:auto;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:32px;
+    margin-bottom:15px;
+    box-shadow:0 8px 20px rgba(37,99,235,.35);
+}
+
+.header h2{
+    color:#1f2937;
+    font-size:28px;
+    font-weight:700;
+}
+
+.header p{
+    color:#6b7280;
+    margin-top:6px;
+    font-size:14px;
+}
+
+.input-group{
+    margin-bottom:18px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:8px;
+    color:#374151;
+    font-size:14px;
+    font-weight:600;
+}
+
+.input-group label i{
+    color:#2563eb;
+    margin-right:8px;
+}
+
+input,
+select,
+textarea{
+
+    width:100%;
+    border:2px solid #e5e7eb;
+    border-radius:14px;
+    padding:14px 16px;
+    font-size:15px;
+    font-family:'Poppins',sans-serif;
+    outline:none;
+    transition:.3s;
+    background:#fff;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    border-color:#2563eb;
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+
+}
+
+textarea{
+
+    resize:none;
+    min-height:90px;
+
+}
+
+.mobile-box{
+
+    display:flex;
+
+}
+
+.mobile-box span{
+
+    background:#2563eb;
+    color:#fff;
+    padding:14px 16px;
+    border-radius:14px 0 0 14px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+
+}
+
+.mobile-box input{
+
+    border-radius:0 14px 14px 0;
+    border-left:none;
+
+}
+
+.submit-btn{
+
+    width:100%;
+    border:none;
+    padding:15px;
+    margin-top:10px;
+    border-radius:15px;
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    color:#fff;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(37,99,235,.30);
+
+}
+
+.submit-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.submit-btn:active{
+
+    transform:scale(.98);
+
+}
+
+.submit-btn i{
+
+    margin-right:8px;
+
+}
+/* =========================
+   POPUP
+========================= */
+
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    animation:fadeIn .3s ease;
+}
+
+.popup-content{
+    width:90%;
+    max-width:360px;
+    background:#fff;
+    border-radius:25px;
+    padding:30px 25px;
+    text-align:center;
+    animation:zoomIn .35s ease;
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+
+.popup-icon{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#22c55e,#16a34a);
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:42px;
+    margin:0 auto 20px;
+    box-shadow:0 10px 25px rgba(34,197,94,.35);
+}
+
+.popup h2{
+    color:#111827;
+    margin-bottom:10px;
+}
+
+.popup p{
+    color:#6b7280;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+.popup-btn{
+    width:100%;
+    border:none;
+    padding:14px;
+    border-radius:14px;
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    color:#fff;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.popup-btn:hover{
+    opacity:.9;
+}
+
+/* =========================
+   LOADER
+========================= */
+
+.loader{
+    position:fixed;
+    inset:0;
+    background:rgba(255,255,255,.92);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:10000;
+}
+
+.spinner{
+    width:70px;
+    height:70px;
+    border:6px solid #dbeafe;
+    border-top:6px solid #2563eb;
+    border-radius:50%;
+    animation:spin .8s linear infinite;
+}
+
+.loader h3{
+    margin-top:20px;
+    color:#111827;
+    font-size:22px;
+}
+
+.loader p{
+    color:#6b7280;
+    margin-top:8px;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes zoomIn{
+    from{
+        transform:scale(.7);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:10px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:480px){
+
+    body{
+        padding:15px;
+    }
+
+    .card{
+        padding:22px;
+        border-radius:20px;
+    }
+
+    .header h2{
+        font-size:24px;
+    }
+
+    .logo{
+        width:65px;
+        height:65px;
+        font-size:28px;
+    }
+
+    input,
+    select,
+    textarea{
+        font-size:14px;
+        padding:12px;
+    }
+
+    .submit-btn{
+        font-size:16px;
+        padding:14px;
+    }
+
+    .popup-content{
+        padding:25px 20px;
+    }
+
+}
