@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SOHOZATRI Admin Panel</title>
+
+<link rel="stylesheet" href="admin.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<div class="logo">
+
+<i class="fa-solid fa-layer-group"></i>
+
+<h2>SOHOZATRI</h2>
+
+<p>Admin Panel</p>
+
+</div>
+
+<ul>
+
+<li class="active">
+
+<i class="fa-solid fa-house"></i>
+
+<span>Home</span>
+
+</li>
+
+<li onclick="location.href='index.html'">
+
+<i class="fa-solid fa-money-bill-wave"></i>
+
+<span>Add Payment</span>
+
+</li>
+
+<li onclick="location.href='member.html'">
+
+<i class="fa-solid fa-users"></i>
+
+<span>Members</span>
+
+</li>
+
+<li onclick="location.href='dashboard.html'">
+
+<i class="fa-solid fa-chart-column"></i>
+
+<span>Reports</span>
+
+</li>
+
+<li id="logoutBtn">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+<span>Logout</span>
+
+</li>
+
+</ul>
+
+</div>
+
+<!-- Main -->
+
+<div class="main">
+
+<header>
+
+<h1>
+
+<i class="fa-solid fa-gauge-high"></i>
+
+Admin Dashboard
+
+</h1>
+
+<p>Welcome to SOHOZATRI Payment Management System</p>
+
+</header>
+
+<!-- Summary Cards -->
+
+<div class="cards">
+
+<div class="card">
+
+<i class="fa-solid fa-users"></i>
+
+<h2 id="totalMembers">0</h2>
+
+<p>Total Members</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-wallet"></i>
+
+<h2 id="totalCollection">৳0</h2>
+
+<p>Total Collection</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-calendar-days"></i>
+
+<h2 id="monthlyCollection">৳0</h2>
+
+<p>This Month</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-coins"></i>
+
+<h2 id="todayCollection">৳0</h2>
+
+<p>Today</p>
+
+</div>
+
+</div>
+<!-- Quick Actions -->
+
+<div class="quick-actions">
+
+    <h2>Quick Actions</h2>
+
+    <div class="action-grid">
+
+        <div class="action-card" onclick="location.href='index.html'">
+            <i class="fa-solid fa-money-bill-wave"></i>
+            <h3>Add Payment</h3>
+            <p>Add a new payment</p>
+        </div>
+
+        <div class="action-card" onclick="location.href='member.html'">
+            <i class="fa-solid fa-users"></i>
+            <h3>Members</h3>
+            <p>Manage members</p>
+        </div>
+
+        <div class="action-card" onclick="location.href='dashboard.html'">
+            <i class="fa-solid fa-chart-column"></i>
+            <h3>Reports</h3>
+            <p>View reports</p>
+        </div>
+
+        <div class="action-card" onclick="location.href='dashboard.html'">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <h3>Payment History</h3>
+            <p>All payment records</p>
+        </div>
+
+        <div class="action-card" onclick="location.href='settings.html'">
+            <i class="fa-solid fa-gear"></i>
+            <h3>Settings</h3>
+            <p>System settings</p>
+        </div>
+
+        <div class="action-card logout-card" id="logoutCard">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <h3>Logout</h3>
+            <p>Sign out securely</p>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Recent Activity -->
+
+<div class="recent-box">
+
+    <h2>
+        <i class="fa-solid fa-bolt"></i>
+        Recent Activity
+    </h2>
+
+    <div id="recentActivity">
+
+        <p class="empty">
+            No recent activity found.
+        </p>
+
+    </div>
+
+</div>
+
+<!-- Loader -->
+
+<div id="loader" class="loader">
+
+    <div class="spinner"></div>
+
+    <p>Loading...</p>
+
+</div>
+
+<script src="admin.js"></script>
+
+</div>
+
+</body>
+</html>
