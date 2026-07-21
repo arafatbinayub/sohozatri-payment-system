@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SOHOZATRI | Login</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         AUTH CONTAINER
+    ========================================== -->
+
+    <div class="auth-container">
+
+
+        <!-- =====================================
+             LOGIN CARD
+        ====================================== -->
+
+        <div class="auth-card">
+
+
+            <!-- LOGO -->
+
+            <div class="logo-area">
+
+                <div class="logo-icon">
+                    S
+                </div>
+
+                <h1>
+                    SOHOZATRI
+                </h1>
+
+                <p>
+                    Member & Admin Login
+                </p>
+
+            </div>
+
+
+            <!-- LOGIN FORM -->
+
+            <div class="form-area">
+
+                <h2>
+                    Login
+                </h2>
+
+                <p class="form-subtitle">
+                    Login to your SOHOZATRI account
+                </p>
+
+
+                <form id="loginForm">
+
+
+                    <!-- EMAIL -->
+
+                    <div class="input-group">
+
+                        <label for="loginEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="input-group">
+
+                        <label for="loginPassword">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- FORGOT PASSWORD -->
+
+                    <div class="forgot-area">
+
+                        <button
+                            type="button"
+                            id="forgotPasswordBtn"
+                        >
+                            Forgot Password?
+                        </button>
+
+                    </div>
+
+
+                    <!-- LOGIN BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="main-btn"
+                        id="loginBtn"
+                    >
+                        Login
+                    </button>
+
+
+                </form>
+
+
+                <!-- REGISTER -->
+
+                <div class="switch-auth">
+
+                    <span>
+                        Don't have an account?
+                    </span>
+
+                    <button
+                        type="button"
+                        id="registerBtn"
+                    >
+                        Register Now
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =========================================
+         LOADING OVERLAY
+    ========================================== -->
+
+    <div
+        class="loading-overlay hidden"
+        id="loadingOverlay"
+    >
+
+        <div class="loader"></div>
+
+        <p>
+            Please wait...
+        </p>
+
+    </div>
+
+
+    <!-- =========================================
+         MESSAGE OVERLAY
+    ========================================== -->
+
+    <div
+        class="message-overlay hidden"
+        id="messageOverlay"
+    >
+
+
+        <div class="message-popup">
+
+
+            <div
+                class="message-icon"
+                id="messageIcon"
+            >
+                ✓
+            </div>
+
+
+            <h3 id="messageTitle">
+                Success
+            </h3>
+
+
+            <p id="messageText">
+                Operation completed successfully.
+            </p>
+
+
+            <button
+                type="button"
+                id="closeMessageBtn"
+            >
+                OK
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script
+        type="module"
+        src="login.js"
+    ></script>
+
+
+</body>
+
+</html>

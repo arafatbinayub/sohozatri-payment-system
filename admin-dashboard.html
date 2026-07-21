@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        SOHOZATRI Admin Dashboard
+    </title>
+
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
+        href="admin-dashboard.css"
+    >
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     LOADING
+========================================== -->
+
+<div
+    id="loadingOverlay"
+    class="loading-overlay hidden"
+>
+
+    <div class="loader"></div>
+
+    <p>
+        Please wait...
+    </p>
+
+</div>
+
+
+
+<!-- ==========================================
+     SIDEBAR
+========================================== -->
+
+<aside
+    id="sidebar"
+    class="sidebar"
+>
+
+    <div class="sidebar-logo">
+
+        <div class="logo-icon">
+
+            <i class="fa-solid fa-people-group"></i>
+
+        </div>
+
+        <div>
+
+            <h2>
+                SOHOZATRI
+            </h2>
+
+            <span>
+                Admin Panel
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="sidebar-nav">
+
+
+        <button
+            class="nav-item active"
+            data-section="dashboardSection"
+        >
+
+            <i class="fa-solid fa-gauge-high"></i>
+
+            <span>
+                Dashboard
+            </span>
+
+        </button>
+
+
+
+        <button
+            class="nav-item"
+            data-section="membersSection"
+        >
+
+            <i class="fa-solid fa-users"></i>
+
+            <span>
+                Members
+            </span>
+
+        </button>
+
+
+
+        <button
+            class="nav-item"
+            data-section="addMemberSection"
+        >
+
+            <i class="fa-solid fa-user-plus"></i>
+
+            <span>
+                Add Member
+            </span>
+
+        </button>
+
+
+
+        <button
+            class="nav-item"
+            data-section="balanceSection"
+        >
+
+            <i class="fa-solid fa-wallet"></i>
+
+            <span>
+                Add / Remove Balance
+            </span>
+
+        </button>
+
+
+
+        <button
+            class="nav-item"
+            data-section="removeMemberSection"
+        >
+
+            <i class="fa-solid fa-user-minus"></i>
+
+            <span>
+                Remove Member
+            </span>
+
+        </button>
+
+
+
+        <button
+            class="nav-item"
+            data-section="historySection"
+        >
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            <span>
+                History
+            </span>
+
+        </button>
+
+
+
+        <button
+            class="nav-item"
+            data-section="noteSection"
+        >
+
+            <i class="fa-solid fa-note-sticky"></i>
+
+            <span>
+                Note
+            </span>
+
+        </button>
+
+
+    </nav>
+
+
+
+    <!-- LOGOUT -->
+
+    <button
+        id="logoutBtn"
+        class="logout-btn"
+    >
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        <span>
+            Logout
+        </span>
+
+    </button>
+
+
+</aside>
+
+
+
+<!-- ==========================================
+     MAIN
+========================================== -->
+
+<main class="main-content">
+
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+
+        <button
+            id="menuBtn"
+            class="menu-btn"
+        >
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+
+
+        <div class="topbar-title">
+
+            <h1 id="pageTitle">
+                Dashboard
+            </h1>
+
+            <p>
+                SOHOZATRI Organization
+            </p>
+
+        </div>
+
+
+
+        <div class="admin-profile">
+
+
+            <div
+                id="adminProfileInitial"
+                class="admin-avatar"
+            >
+
+                A
+
+            </div>
+
+
+            <div class="admin-info">
+
+                <strong id="adminName">
+                    Admin
+                </strong>
+
+                <span>
+                    Administrator
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- ==========================================
+         DASHBOARD SECTION
+    ========================================== -->
+
+    <section
+        id="dashboardSection"
+        class="page-section active"
+    >
+
+
+        <div class="welcome-card">
+
+
+            <div>
+
+                <span>
+                    Welcome Back
+                </span>
+
+                <h2 id="dashboardAdminName">
+                    SOHOZATRI Admin
+                </h2>
+
+                <p>
+                    Manage your organization
+                    from one place.
+                </p>
+
+            </div>
+
+
+            <div class="welcome-icon">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- TOTAL BALANCE -->
+
+        <div class="total-balance-card">
+
+
+            <div class="balance-icon">
+
+                <i class="fa-solid fa-coins"></i>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Total Balance
+                </span>
+
+                <h2>
+                    ৳<span id="totalBalance">
+                        0.00
+                    </span>
+                </h2>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- STAT CARDS -->
+
+        <div class="stats-grid">
+
+
+            <div
+                class="stat-card"
+                data-section="membersSection"
+            >
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-users"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Total Members
+                    </span>
+
+                    <strong id="totalMembers">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="stat-card"
+                data-section="historySection"
+            >
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-hourglass-half"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Pending Payments
+                    </span>
+
+                    <strong id="pendingPayments">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="stat-card"
+                data-section="historySection"
+            >
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Approved Payments
+                    </span>
+
+                    <strong id="approvedPayments">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="stat-card"
+                data-section="historySection"
+            >
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-user-clock"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        New Registrations
+                    </span>
+
+                    <strong id="newRegistrations">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- QUICK ACTIONS -->
+
+        <h3 class="section-heading">
+            Quick Actions
+        </h3>
+
+
+        <div class="quick-actions">
+
+
+            <button
+                class="quick-action"
+                data-section="membersSection"
+            >
+
+                <i class="fa-solid fa-users"></i>
+
+                <span>
+                    Members
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="quick-action"
+                data-section="addMemberSection"
+            >
+
+                <i class="fa-solid fa-user-plus"></i>
+
+                <span>
+                    Add Member
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="quick-action"
+                data-section="balanceSection"
+            >
+
+                <i class="fa-solid fa-wallet"></i>
+
+                <span>
+                    Balance
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="quick-action"
+                data-section="removeMemberSection"
+            >
+
+                <i class="fa-solid fa-user-minus"></i>
+
+                <span>
+                    Remove Member
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="quick-action"
+                data-section="historySection"
+            >
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+                <span>
+                    History
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="quick-action"
+                data-section="noteSection"
+            >
+
+                <i class="fa-solid fa-note-sticky"></i>
+
+                <span>
+                    Note
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==========================================
+         MEMBERS SECTION
+    ========================================== -->
+
+    <section
+        id="membersSection"
+        class="page-section"
+    >
+
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    Members
+                </h2>
+
+                <p>
+                    All registered members
+                </p>
+
+            </div>
+
+
+            <button
+                id="refreshMembersBtn"
+                class="primary-btn"
+            >
+
+                <i class="fa-solid fa-rotate"></i>
+
+                Refresh
+
+            </button>
+
+        </div>
+
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-search"></i>
+
+            <input
+                type="text"
+                id="memberSearch"
+                placeholder="Search by name, ID or phone..."
+            >
+
+        </div>
+
+
+
+        <!-- MEMBERS LIST -->
+
+        <div
+            id="membersList"
+            class="members-grid"
+        >
+
+            <div class="empty-state">
+
+                <i class="fa-solid fa-users"></i>
+
+                <h3>
+                    No Members
+                </h3>
+
+                <p>
+                    Registered members will
+                    appear here.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==========================================
+         ADD MEMBER SECTION
+    ========================================== -->
+
+    <section
+        id="addMemberSection"
+        class="page-section"
+    >
+
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    Add Member
+                </h2>
+
+                <p>
+                    Create a new member account
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="form-card">
+
+
+            <form
+                id="addMemberForm"
+            >
+
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="addMemberName"
+                        required
+                        placeholder="Enter full name"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="addMemberPhone"
+                        required
+                        placeholder="+8801XXXXXXXXX"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="addMemberEmail"
+                        required
+                        placeholder="Enter email"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="addMemberPassword"
+                        required
+                        placeholder="Create password"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="addMemberConfirmPassword"
+                        required
+                        placeholder="Confirm password"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Initial Balance
+                    </label>
+
+                    <input
+                        type="number"
+                        id="addMemberBalance"
+                        min="0"
+                        value="0"
+                        placeholder="0"
+                    >
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="primary-btn full-width"
+                >
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    Add Member
+
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==========================================
+         BALANCE SECTION
+    ========================================== -->
+
+    <section
+        id="balanceSection"
+        class="page-section"
+    >
+
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    Add / Remove Balance
+                </h2>
+
+                <p>
+                    Manage member balance
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="form-card">
+
+
+            <form
+                id="balanceForm"
+            >
+
+
+                <div class="form-group">
+
+                    <label>
+                        Member ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="balanceMemberId"
+                        placeholder="SHZ001"
+                        required
+                    >
+
+                </div>
+
+
+
+                <button
+                    type="button"
+                    id="findBalanceMemberBtn"
+                    class="secondary-btn"
+                >
+
+                    <i class="fa-solid fa-search"></i>
+
+                    Find Member
+
+                </button>
+
+
+
+                <div
+                    id="balanceMemberInfo"
+                    class="member-info-box hidden"
+                >
+
+                    <div
+                        id="balanceMemberInitial"
+                        class="large-avatar"
+                    >
+                        M
+                    </div>
+
+                    <div>
+
+                        <strong
+                            id="balanceMemberName"
+                        >
+                            Member
+                        </strong>
+
+                        <span
+                            id="balanceMemberCurrentBalance"
+                        >
+                            Current Balance:
+                            ৳0.00
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Action
+                    </label>
+
+                    <select
+                        id="balanceAction"
+                        required
+                    >
+
+                        <option value="">
+                            Select Action
+                        </option>
+
+                        <option value="add">
+                            Add Balance
+                        </option>
+
+                        <option value="remove">
+                            Remove Balance
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Amount
+                    </label>
+
+                    <input
+                        type="number"
+                        id="balanceAmount"
+                        min="1"
+                        placeholder="Enter amount"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Remark
+                    </label>
+
+                    <textarea
+                        id="balanceRemark"
+                        rows="4"
+                        placeholder="Write a remark..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="primary-btn full-width"
+                >
+
+                    <i class="fa-solid fa-wallet"></i>
+
+                    Update Balance
+
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==========================================
+         REMOVE MEMBER SECTION
+    ========================================== -->
+
+    <section
+        id="removeMemberSection"
+        class="page-section"
+    >
+
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    Remove Member
+                </h2>
+
+                <p>
+                    Remove a member from organization
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="form-card danger-card">
+
+
+            <div class="danger-warning">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                <p>
+                    Removing a member is a
+                    serious action. Please
+                    check the Member ID carefully.
+                </p>
+
+            </div>
+
+
+
+            <form
+                id="removeMemberForm"
+            >
+
+
+                <div class="form-group">
+
+                    <label>
+                        Member ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="removeMemberId"
+                        placeholder="SHZ001"
+                        required
+                    >
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="danger-btn full-width"
+                >
+
+                    <i class="fa-solid fa-user-minus"></i>
+
+                    Remove Member
+
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==========================================
+         HISTORY SECTION
+    ========================================== -->
+
+    <section
+        id="historySection"
+        class="page-section"
+    >
+
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    History
+                </h2>
+
+                <p>
+                    Payments and member activities
+                </p>
+
+            </div>
+
+
+            <button
+                id="refreshHistoryBtn"
+                class="primary-btn"
+            >
+
+                <i class="fa-solid fa-rotate"></i>
+
+                Refresh
+
+            </button>
+
+        </div>
+
+
+
+        <!-- HISTORY TABS -->
+
+        <div class="history-tabs">
+
+
+            <button
+                class="history-tab active"
+                data-history="payments"
+            >
+
+                <i class="fa-solid fa-money-bill-transfer"></i>
+
+                Payments
+
+            </button>
+
+
+
+            <button
+                class="history-tab"
+                data-history="registrations"
+            >
+
+                <i class="fa-solid fa-user-plus"></i>
+
+                Registrations
+
+            </button>
+
+
+
+            <button
+                class="history-tab"
+                data-history="balance"
+            >
+
+                <i class="fa-solid fa-wallet"></i>
+
+                Balance Changes
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- PAYMENT HISTORY -->
+
+        <div
+            id="paymentsHistory"
+            class="history-content active"
+        >
+
+            <div
+                id="paymentsList"
+                class="history-list"
+            >
+
+                <div class="empty-state">
+
+                    <i class="fa-solid fa-receipt"></i>
+
+                    <h3>
+                        No Payment History
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- REGISTRATION HISTORY -->
+
+        <div
+            id="registrationsHistory"
+            class="history-content"
+        >
+
+            <div
+                id="registrationsList"
+                class="history-list"
+            >
+
+                <div class="empty-state">
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    <h3>
+                        No Registration History
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- BALANCE HISTORY -->
+
+        <div
+            id="balanceHistory"
+            class="history-content"
+        >
+
+            <div
+                id="balanceHistoryList"
+                class="history-list"
+            >
+
+                <div class="empty-state">
+
+                    <i class="fa-solid fa-wallet"></i>
+
+                    <h3>
+                        No Balance History
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==========================================
+         NOTE SECTION
+    ========================================== -->
+
+    <section
+        id="noteSection"
+        class="page-section"
+    >
+
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    Member Note
+                </h2>
+
+                <p>
+                    This note will appear as a
+                    popup whenever members login.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="form-card note-card">
+
+
+            <div class="note-info">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                <p>
+                    Write an important message
+                    for all members. Members will
+                    see this message every time
+                    they login to their dashboard.
+                </p>
+
+            </div>
+
+
+
+            <form
+                id="noteForm"
+            >
+
+
+                <div class="form-group">
+
+                    <label>
+                        Note Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="noteTitle"
+                        placeholder="Important Notice"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Note Message
+                    </label>
+
+                    <textarea
+                        id="noteMessage"
+                        rows="8"
+                        placeholder="Write your message for members..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <div class="note-status-row">
+
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="noteActive"
+                            checked
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+
+                    <span>
+                        Show Note to Members
+                    </span>
+
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="primary-btn full-width"
+                >
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+
+                    Save Note
+
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ==========================================
+     MEMBER PROFILE MODAL
+========================================== -->
+
+<div
+    id="memberProfileModal"
+    class="modal-overlay hidden"
+>
+
+
+    <div class="modal-card member-profile-modal">
+
+
+        <button
+            class="modal-close"
+            id="closeMemberProfileBtn"
+        >
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+
+        <div class="profile-modal-header">
+
+
+            <div
+                id="modalMemberInitial"
+                class="modal-avatar"
+            >
+
+                M
+
+            </div>
+
+
+            <h2 id="modalMemberName">
+                Member Name
+            </h2>
+
+
+            <span id="modalMemberId">
+                SHZ001
+            </span>
+
+
+        </div>
+
+
+
+        <div class="profile-details">
+
+
+            <div class="profile-detail">
+
+                <i class="fa-solid fa-phone"></i>
+
+                <div>
+
+                    <span>
+                        Phone
+                    </span>
+
+                    <strong id="modalMemberPhone">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="profile-detail">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <div>
+
+                    <span>
+                        Email
+                    </span>
+
+                    <strong id="modalMemberEmail">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="profile-detail">
+
+                <i class="fa-solid fa-wallet"></i>
+
+                <div>
+
+                    <span>
+                        Balance
+                    </span>
+
+                    <strong id="modalMemberBalance">
+                        ৳0.00
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="profile-detail">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                <div>
+
+                    <span>
+                        WhatsApp
+                    </span>
+
+                    <strong id="modalMemberWhatsapp">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="profile-detail">
+
+                <i class="fa-solid fa-cake-candles"></i>
+
+                <div>
+
+                    <span>
+                        Date of Birth
+                    </span>
+
+                    <strong id="modalMemberDob">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==========================================
+     PAYMENT APPROVAL MODAL
+========================================== -->
+
+<div
+    id="paymentApprovalModal"
+    class="modal-overlay hidden"
+>
+
+
+    <div class="modal-card">
+
+
+        <button
+            class="modal-close"
+            id="closePaymentApprovalBtn"
+        >
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <div class="modal-icon success-icon">
+
+            <i class="fa-solid fa-money-check-dollar"></i>
+
+        </div>
+
+
+        <h2>
+            Payment Details
+        </h2>
+
+
+        <div
+            id="paymentApprovalDetails"
+            class="payment-details"
+        >
+
+        </div>
+
+
+        <div class="modal-actions">
+
+
+            <button
+                id="rejectPaymentBtn"
+                class="danger-btn"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+                Reject
+
+            </button>
+
+
+
+            <button
+                id="approvePaymentBtn"
+                class="success-btn"
+            >
+
+                <i class="fa-solid fa-check"></i>
+
+                Approve
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==========================================
+     LOGOUT MODAL
+========================================== -->
+
+<div
+    id="logoutModal"
+    class="modal-overlay hidden"
+>
+
+
+    <div class="modal-card small-modal">
+
+
+        <div class="modal-icon warning-icon">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+        </div>
+
+
+        <h2>
+            Logout?
+        </h2>
+
+
+        <p>
+            Are you sure you want to
+            logout from Admin Panel?
+        </p>
+
+
+        <div class="modal-actions">
+
+
+            <button
+                id="cancelLogoutBtn"
+                class="secondary-btn"
+            >
+
+                Cancel
+
+            </button>
+
+
+
+            <button
+                id="confirmLogoutBtn"
+                class="danger-btn"
+            >
+
+                Logout
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==========================================
+     GENERAL MESSAGE MODAL
+========================================== -->
+
+<div
+    id="messageModal"
+    class="modal-overlay hidden"
+>
+
+
+    <div class="modal-card small-modal">
+
+
+        <div
+            id="generalMessageIcon"
+            class="modal-icon success-icon"
+        >
+
+            ✓
+
+        </div>
+
+
+        <h2 id="generalMessageTitle">
+            Success
+        </h2>
+
+
+        <p id="generalMessageText">
+            Operation completed.
+        </p>
+
+
+        <button
+            id="closeMessageBtn"
+            class="primary-btn full-width"
+        >
+
+            OK
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script
+    type="module"
+    src="admin-dashboard.js"
+></script>
+
+
+</body>
+
+</html>
